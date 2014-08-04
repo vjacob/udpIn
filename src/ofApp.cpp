@@ -12,6 +12,7 @@ void ofApp::setup(){
 	udpConnection.SetNonBlocking(true);
     
     printf("UDP: Listening to port 20000.\n");
+    printf("Ready to receive!\n");
     
 	ofSetBackgroundAuto(false);
 	ofBackground(255, 255, 255);
@@ -20,6 +21,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
+    // receiving unsigned bytes!
     UInt8 udpMessage[14];
     
 	udpConnection.Receive((char *)udpMessage,sizeof(udpMessage));
@@ -30,7 +32,6 @@ void ofApp::update(){
         {
             printf("0x%02X ", udpMessage[i]);
         }
-
         printf("\n");
     }
 
